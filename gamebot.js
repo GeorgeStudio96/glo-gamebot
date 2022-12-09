@@ -8,71 +8,48 @@
 // — если пользователь нажимает "Отмена", то игра заканчивается и выводится сообщение "Игра окончена".
 // — если пользовательское число равно загаданному, то игра заканчивается и выводит сообщение "Поздравляю, Вы угадали!!!"
 
-let number = 69;
 
 
+// рекурсивная функция
 
-let question = +prompt('Угадай число от 1 до 100');
+let num = 10;
+let answer;
 let again;
 
-const gameBot = function (index) {
+const gamebot = function (index) {
+    answer = +prompt('Угадайте число от 1 до 100') // ответ пользователя
+    console.log(answer)
 
-    if (index > number) {
-        console.log('Загаданное число меньше')
+    if (index > answer) {
+        alert('Загаданное число больше')
         again = confirm('Хотите повторить снова?')
-    } else if (index < number) {
-        console.log('Загаданное число больше')
+    } else if (index < answer) {
+        alert('Загаданное число меньше')
         again = confirm('Хотите повторить снова?')
+    } else if (index === answer) {
+        alert('Поздравляю, Вы угадали!!!')
+        return
+    }
+
+    if (isNaN(answer)) {
+        alert('Введено не число')
+        again = confirm('Хотите ввести новый вариант?')
     }
 
     console.log(again)
 
     if (again === true) {
-        question = +prompt('Угадай число от 1 до 100');
+        gamebot(index)
     } else {
-        return
+        aler('Игра окончена')
     }
-
-
-
-    // question = prompt('Угадай число от 1 до 100')
-
-    // if (question < number) {
-    //     console.log('Загаданное число больше')
-
-    // } else if (question > number) {
-    //     console.log('Загаданное число меньше')
-    // }
 
 }
 
-gameBot(question);
+gamebot(num) // num = 10 значит и index = 10
 
 
-
-
-
-
-
-
-
-
-
-// рекурсивная функция
 /*
-const potate = 10
-
-const clearPotate = function (index) {
-
-    if (index > 0) {
-        console.log('Картошка' + index + 'почищена')
-        index--
-        clearPotate(index)
-    }
-}
-
-clearPotate(potate)
-
 
 function test(x) {
     if (x === 1) {
