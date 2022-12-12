@@ -1,20 +1,19 @@
 'use strict'
 
 const gameBotFunction = function () {
-    /*
-    
-        function randomGenerate(min, max) {
-            let rand = min - 0.5 + Math.random() * (max - min + 1)
-            return Math.round(rand)
-        }
-    */
+
+
+    function randomGenerate(min, max) {
+        let rand = min - 0.5 + Math.random() * (max - min + 1)
+        return Math.round(rand)
+    }
 
 
 
 
 
 
-    let mysteryNumber = 90;
+    let mysteryNumber = 10;
     let answerNum = ''
     let tries = 2
 
@@ -29,7 +28,7 @@ const gameBotFunction = function () {
 
         // начало тела рекурсивной функции
 
-        answerNum = prompt('Угадайте число от 0 до 100') // задаем вопрос
+        answerNum = prompt('Угадайте число от 0 до 10') // задаем вопрос
         console.log(answerNum) // выведем в консоль для понимания, какие цифры вводятся
 
         // если ничего не указать или нажать отмена, вернется 0
@@ -63,7 +62,8 @@ const gameBotFunction = function () {
             const isUserWantNewGame = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?') // угадал! закончить игру!
             if (isUserWantNewGame) {
                 tries = 10
-                mysteryNumber = 10
+                mysteryNumber = randomGenerate(1, 10)
+                console.log('Случайно выбранное число: ', mysteryNumber)
             } else {
                 tries = 0
             }
