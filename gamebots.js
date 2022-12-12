@@ -40,7 +40,6 @@ const gameBotFunction = function () {
     let answerNum = ''
     let tries = 2
     let sum = 0
-    let again;
 
     const isNumber = function (num) {
         return !isNaN(parseFloat(num)) && isFinite(num)
@@ -76,25 +75,16 @@ const gameBotFunction = function () {
 
 
 
-
+        let isUserWantNewGame;
 
         if (mysteryNumber > sum) {
             alert('Загаданное число больше: ' + 'Осталось попыток: ' + tries) // после первого отработанного условия идем дальше
         } else if (mysteryNumber < sum) {
             alert('Загаданное число меньше:  ' + 'Осталось попыток: ' + tries)
         } else {
-            again = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?') // угадал! закончить игру!
-            console.log(again)
-        }
+            isUserWantNewGame = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?') // угадал! закончить игру!
 
-        if (again === true) {
-            mysteryNumber = 39;
-            tries = 2
-            getResult();
-        } else {
-            return
         }
-
 
 
         if (tries > 0) {
@@ -107,6 +97,11 @@ const gameBotFunction = function () {
         }
 
 
+        if (isUserWantNewGame) {
+            tries = 10
+        } else {
+            return
+        }
 
 
         // конец тела рекурсивной функции
