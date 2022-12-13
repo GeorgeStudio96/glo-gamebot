@@ -13,9 +13,10 @@ const gameBotFunction = function () {
 
 
 
-    let mysteryNumber = 10;
+    let mysteryNumber = randomGenerate(1, 100)
+    console.log('Случайно выбранное число: ', mysteryNumber)
     let answerNum = ''
-    let tries = 2
+    let tries = 10
 
 
     const isNumber = function (num) {
@@ -28,7 +29,7 @@ const gameBotFunction = function () {
 
         // начало тела рекурсивной функции
 
-        answerNum = prompt('Угадайте число от 0 до 10') // задаем вопрос
+        answerNum = prompt('Угадайте число от 0 до 100') // задаем вопрос
         console.log(answerNum) // выведем в консоль для понимания, какие цифры вводятся
 
         // если ничего не указать или нажать отмена, вернется 0
@@ -62,7 +63,7 @@ const gameBotFunction = function () {
             const isUserWantNewGame = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?') // угадал! закончить игру!
             if (isUserWantNewGame) {
                 tries = 10
-                mysteryNumber = randomGenerate(1, 10)
+                mysteryNumber = randomGenerate(1, 100)
                 console.log('Случайно выбранное число: ', mysteryNumber)
             } else {
                 tries = 0
