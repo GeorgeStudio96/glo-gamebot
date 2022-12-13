@@ -14,7 +14,6 @@ const gameBotFunction = function () {
 
 
     let mysteryNumber = randomGenerate(1, 100)
-    console.log('Случайно выбранное число: ', mysteryNumber)
     let answerNum = ''
     let tries = 10
 
@@ -30,13 +29,11 @@ const gameBotFunction = function () {
         // начало тела рекурсивной функции
 
         answerNum = prompt('Угадайте число от 0 до 100') // задаем вопрос
-        console.log(answerNum) // выведем в консоль для понимания, какие цифры вводятся
+
 
         // если ничего не указать или нажать отмена, вернется 0
-
-
         if (answerNum === null) {
-            alert('Вы отказались играть')
+            alert('Вы завершили игру')
             return
         }
 
@@ -45,7 +42,6 @@ const gameBotFunction = function () {
         while (!isNumber(answerNum) || answerNum.trim() === '') {
             alert('Вы ввели строку:')
             answerNum = prompt('Угадайте число от 0 до 100') // задаем вопрос
-            console.log(answerNum) // выведем в консоль для понимания, какие цифры вводятся
 
         }
 
@@ -64,7 +60,6 @@ const gameBotFunction = function () {
             if (isUserWantNewGame) {
                 tries = 10
                 mysteryNumber = randomGenerate(1, 100)
-                console.log('Случайно выбранное число: ', mysteryNumber)
             } else {
                 tries = 0
             }
@@ -85,7 +80,7 @@ const gameBotFunction = function () {
                 tries = 2
                 getResult();
             } else {
-                console.log('Пользователь завершил игру')
+                alert('Вы завершили игру')
                 return
             }
 
